@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SWRLZ User Taught Skill Delta",
+  "type": "object",
+  "required": ["type", "skill_name", "created_on_device", "created_at", "core_version_when_taught", "trigger_phrases", "steps", "safety_level", "requires_confirmation", "scope", "status", "user_approved", "synced"],
+  "properties": {
+    "type": {"const": "user_taught_skill"},
+    "skill_name": {"type": "string", "minLength": 1},
+    "created_on_device": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string"},
+    "core_version_when_taught": {"type": "string"},
+    "trigger_phrases": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "steps": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "safety_level": {"enum": ["low", "medium", "high", "locked"]},
+    "requires_confirmation": {"type": "boolean"},
+    "scope": {"enum": ["private_local", "personal_synced", "official_candidate"]},
+    "status": {"enum": ["local_candidate", "personal_approved", "official_candidate", "official_approved", "rejected", "conflict"]},
+    "user_approved": {"type": "boolean"},
+    "synced": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

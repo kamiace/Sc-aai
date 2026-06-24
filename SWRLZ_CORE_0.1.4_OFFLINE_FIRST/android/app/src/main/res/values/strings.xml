@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SWRLZ-CORE</string>
+    <string name="accessibility_label">SWRLZ-CORE Operator</string>
+    <string name="accessibility_description">SWRLZ-CORE reads the screen via the Android accessibility tree and performs taps, scrolls and text input on your behalf. You can pause or take over at any moment.</string>
+</resources>

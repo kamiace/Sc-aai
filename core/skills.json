@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "official_skills": [],
+  "notes": "Official skills live here. User-taught local skills are append-only deltas and must not be overwritten by this file."
+}

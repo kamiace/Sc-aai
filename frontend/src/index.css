@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-obsidian: #050505;
+  --bg-tape-ash: #121214;
+  --bg-void: #000000;
+  --text-bone: #E3E3E2;
+  --text-ash: #8A8A8E;
+  --accent-phosphor: #61FF7E;
+  --accent-runic: #D4AF37;
+  --accent-cyan: #22D3EE;
+  --accent-violet: #A855F7;
+  --risk-green: #4ADE80;
+  --risk-yellow: #EAB308;
+  --risk-red: #EF4444;
+  --risk-black: #000000;
+}
+
+html, body, #root {
+  background: var(--bg-obsidian);
+  color: var(--text-bone);
+  font-family: 'IBM Plex Sans', sans-serif;
+  min-height: 100%;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(97,255,126,0.04), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(212,175,55,0.03), transparent 40%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
+  letter-spacing: 0.005em;
+}
+
+::selection { background: var(--accent-phosphor); color: #000; }
+
+.font-display { font-family: 'Cinzel Decorative', serif; letter-spacing: 0.06em; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+.font-body { font-family: 'IBM Plex Sans', sans-serif; }
+
+.hex-mesh {
+  background-image:
+    linear-gradient(60deg, rgba(97,255,126,0.04) 25%, transparent 25.5%, transparent 75%, rgba(97,255,126,0.04) 75.5%),
+    linear-gradient(-60deg, rgba(97,255,126,0.04) 25%, transparent 25.5%, transparent 75%, rgba(97,255,126,0.04) 75.5%);
+  background-size: 24px 42px;
+}
+
+.scanlines::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(180deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 3px);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.glow-phosphor { box-shadow: 0 0 0 1px rgba(97,255,126,0.4), 0 0 18px rgba(97,255,126,0.18); }
+.glow-runic { box-shadow: 0 0 0 1px rgba(212,175,55,0.4), 0 0 18px rgba(212,175,55,0.15); }
+.glow-error { box-shadow: 0 0 0 1px rgba(239,68,68,0.6), 0 0 18px rgba(239,68,68,0.25); }
+
+.text-glitch {
+  position: relative;
+  display: inline-block;
+}
+.text-glitch::before, .text-glitch::after {
+  content: attr(data-text);
+  position: absolute; inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+.text-glitch::before { color: #22D3EE; transform: translate(-1px, 0); }
+.text-glitch::after  { color: #EF4444; transform: translate(1px, 0); }
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+.pulse-dot { animation: pulseDot 1.4s ease-in-out infinite; }
+
+@keyframes scanSweep {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+.scan-sweep::after {
+  content: '';
+  position: absolute; left: 0; right: 0; height: 30%;
+  background: linear-gradient(180deg, transparent, rgba(97,255,126,0.18), transparent);
+  animation: scanSweep 2.4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  47% { opacity: 1; }
+  48% { opacity: 0.5; }
+  49% { opacity: 1; }
+  73% { opacity: 0.7; }
+  74% { opacity: 1; }
+}
+.flicker { animation: flicker 5s steps(1, end) infinite; }
+
+/* sigil border helper */
+.sigil-border {
+  border: 1px solid rgba(212,175,55,0.55);
+  position: relative;
+}
+.sigil-border::before {
+  content: '';
+  position: absolute; inset: -2px;
+  border: 1px dashed rgba(212,175,55,0.25);
+  pointer-events: none;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0A0A0B; }
+::-webkit-scrollbar-thumb { background: #1F1F22; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: #2A2A2E; }

@@ -1,0 +1,8 @@
+{
+  "core_version": "0.1.6-pzhp-lds-planning",
+  "patch_name": "Pzhp-LDS Local Core + Learning Delta Sync Planning Patch",
+  "updated_at": "2026-06-24T00:00:00Z",
+  "schema_version": 1,
+  "compatible_android_app_min": "0.1.5-context-control",
+  "notes": "Planning and seed-file patch for local-first core, learning delta sync, patch manifests, merge reports, and rollback rules."
+}

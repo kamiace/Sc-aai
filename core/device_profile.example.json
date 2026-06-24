@@ -1,0 +1,17 @@
+{
+  "device_id": "phone_node_01",
+  "device_name": "Primary Android Node",
+  "platform": "android",
+  "permissions": {
+    "accessibility": false,
+    "overlay": false,
+    "notifications": false
+  },
+  "capabilities": [
+    "app_allowlist",
+    "accessibility_observation",
+    "overlay_controls",
+    "local_skill_storage"
+  ],
+  "current_core_version": "0.1.6-pzhp-lds-planning"
+}

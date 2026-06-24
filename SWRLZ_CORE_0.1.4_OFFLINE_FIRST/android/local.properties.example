@@ -1,0 +1,6 @@
+# Copy this file to local.properties and set the Android SDK path.
+sdk.dir=/path/to/Android/Sdk
+
+# Optional online Mentor. Leave blank for fully offline operation.
+SWURLZ_BACKEND_URL=
+SWURLZ_API_TOKEN=

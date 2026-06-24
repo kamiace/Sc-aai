@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Glitch-mystic Ω sigil + concentric ring -->
+    <path
+        android:pathData="M54,18 m-30,0 a30,30 0 1,0 60,0 a30,30 0 1,0 -60,0"
+        android:strokeColor="#D4AF37"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M40,72 L44,60 L40,52 A14,14 0 1,1 68,52 L64,60 L68,72 L60,72 L60,68 L48,68 L48,72 Z"
+        android:fillColor="#61FF7E" />
+    <path
+        android:pathData="M54,18 L54,84 M21,54 L87,54"
+        android:strokeColor="#61FF7E"
+        android:strokeWidth="0.5"
+        android:strokeLineCap="round" />
+</vector>

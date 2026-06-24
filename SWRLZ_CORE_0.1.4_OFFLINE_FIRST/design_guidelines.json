@@ -1,0 +1,170 @@
+{
+  "theme": "dark",
+  "archetype": "Terminal Brutalist / Glitch Mystic",
+  "color_palette": {
+    "background": {
+      "obsidian_base": "#050505",
+      "tape_ash_surface": "#121214",
+      "void_black": "#000000",
+      "hex_mesh_overlay": "rgba(97, 255, 126, 0.03)"
+    },
+    "text": {
+      "bone_white_primary": "#E3E3E2",
+      "ash_muted": "#8A8A8E",
+      "phosphor_accent": "#61FF7E"
+    },
+    "risk_tiers": {
+      "green_low": "#4ADE80",
+      "yellow_medium": "#EAB308",
+      "red_high": "#EF4444",
+      "black_prohibited": "#000000"
+    },
+    "ambient_ai_states": {
+      "idle": "#3A3A3C",
+      "listening": "#61FF7E",
+      "observing": "#22D3EE",
+      "planning": "#A855F7",
+      "acting": "#4ADE80",
+      "paused": "#EAB308",
+      "error": "#EF4444"
+    },
+    "jetpack_compose_mapping": {
+      "primary": "Color(0xFF61FF7E)",
+      "background": "Color(0xFF050505)",
+      "surface": "Color(0xFF121214)",
+      "error": "Color(0xFFEF4444)",
+      "onPrimary": "Color(0xFF000000)",
+      "onBackground": "Color(0xFFE3E3E2)",
+      "onSurface": "Color(0xFFE3E3E2)"
+    },
+    "css_variables": {
+      "--bg-obsidian": "#050505",
+      "--bg-tape-ash": "#121214",
+      "--text-bone": "#E3E3E2",
+      "--text-ash": "#8A8A8E",
+      "--accent-phosphor": "#61FF7E",
+      "--accent-runic-gold": "#D4AF37",
+      "--risk-green": "#4ADE80",
+      "--risk-yellow": "#EAB308",
+      "--risk-red": "#EF4444",
+      "--risk-black": "#000000"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "display": {
+        "family": "'Cinzel Decorative', serif",
+        "description": "Glyphic display face for sigils, prominent headers, and runic flavor. Do not use for long text.",
+        "google_font_url": "https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
+      },
+      "mono": {
+        "family": "'JetBrains Mono', monospace",
+        "description": "Precise mono for data, logs, AI thought steps, and timelines. High developer credibility.",
+        "google_font_url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      },
+      "body": {
+        "family": "'IBM Plex Sans', sans-serif",
+        "description": "Humanist body for chat messages, UI labels, and descriptions. Balances the extreme display and mono.",
+        "google_font_url": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      }
+    },
+    "scale": {
+      "h1": "text-4xl tracking-tighter uppercase",
+      "h2": "text-2xl tracking-tight uppercase",
+      "h3": "text-xl",
+      "body": "text-base leading-relaxed",
+      "mono_label": "text-sm uppercase tracking-[0.2em]"
+    }
+  },
+  "spacing": {
+    "philosophy": "Compact for developer tool density, but expansive around critical sigils/actions.",
+    "scale": {
+      "dense": "p-2 gap-2",
+      "standard": "p-4 gap-4",
+      "expanded": "p-8 gap-8",
+      "ritual": "p-12 gap-12"
+    }
+  },
+  "radii": {
+    "philosophy": "Harsh, precise cuts. Avoid soft friendly corners.",
+    "scale": {
+      "none": "rounded-none",
+      "sm": "rounded-sm",
+      "md": "rounded",
+      "full": "rounded-full (strictly for ambient state dots)"
+    }
+  },
+  "elevation_glow": {
+    "shadows": {
+      "none": "shadow-none",
+      "glow_phosphor": "drop-shadow-[0_0_8px_rgba(97,255,126,0.4)]",
+      "glow_runic": "drop-shadow-[0_0_12px_rgba(212,175,55,0.3)]",
+      "glow_error": "drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]"
+    }
+  },
+  "motion_specs": {
+    "glitch_flicker": "Rapid 50ms opacity toggles between 0.8 and 1.0, paired with horizontal 1px translations. Use on state changes.",
+    "sigil_bloom": "Scale from 0.95 to 1.05 while increasing box-shadow glow intensity, easing out over 400ms. Use on APPROVE/TAKE OVER.",
+    "scanline_sweep": "Vertical linear gradient overlay moving top to bottom over 2s. Use during 'planning' or 'observing' AI states.",
+    "runic_underline": "Width expansion from 0% to 100% using step-end easing (jerky/typewriter effect). Use on speech or incoming text."
+  },
+  "component_patterns": {
+    "council_cockpit_chat": {
+      "user_bubble": "Background: Tape Ash (#121214). Border: None. Text: Bone White. Font: IBM Plex Sans. Alignment: Right.",
+      "operator_bubble": "Background: Obsidian. Border: 1px solid Phosphor Green (#61FF7E). Text: JetBrains Mono. Glow: Faint phosphor text-shadow. Alignment: Left.",
+      "mentor_bubble": "Background: Void Black. Border: 1px solid Runic Gold (#D4AF37) with subtle hex-mesh watermark. Font: Cinzel Decorative for header, IBM Plex for body. Alignment: Center (Oracle presence)."
+    },
+    "risk_confidence_badges": {
+      "shape": "Sharp rectangle (0px or 2px radius).",
+      "style": "1px solid border matching risk color. Monospace text matching risk color. Transparent background. For Black risk, use dashed white border over pure black.",
+      "confidence_indicator": "Mono font percentage (e.g., 'CFD: 94%'). Use Phosphor Green for >90%, Ochre for 70-89%, Oxide Red for <70%."
+    },
+    "timeline_log_row": {
+      "layout": "Flex row. Timestamp (mono, ash gray) -> State Dot (color matched to ambient state) -> Action Text (body font, bone white).",
+      "style": "Hovering over a row triggers a subtle 'glitch' text-shadow effect (e.g., cyan/red chromatic aberration)."
+    },
+    "floating_system_overlay": {
+      "layout": "Compact persistent bottom/top strip. Fixed position, z-50.",
+      "style": "Backdrop blur (backdrop-blur-md) with 80% opaque Void Black background. 1px Phosphor Green top border.",
+      "content": "Ambient State pulsing dot, current step (n/N) in JetBrains Mono, fading out previous step, typing in next step."
+    },
+    "sovereignty_buttons": {
+      "style": "Harsh rectangular buttons. Uppercase JetBrains Mono with generous tracking.",
+      "variants": {
+        "PAUSE": "Border: Ochre. Text: Ochre. Hover: Ochre Background, Black Text.",
+        "EXPLAIN": "Border: Cyan. Text: Cyan. Hover: Cyan Background, Black Text.",
+        "TAKE_OVER": "Border: Oxide Red. Text: Oxide Red. Hover: Red Background, White Text + Glitch Flicker.",
+        "APPROVE": "Border: Phosphor Green. Text: Phosphor Green. Hover: Green Background, Black Text + Sigil Bloom."
+      }
+    }
+  },
+  "imagery_direction": {
+    "style": "No placeholder visuals. Heavy use of abstract textures (obsidian rock, CRT scanlines, analog noise) overlaid with hex grids or runic sigils.",
+    "references": [
+      {
+        "category": "Obsidian Texture Base",
+        "url": "https://images.unsplash.com/photo-1529753253655-470be9a42781?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxvYnNpZGlhbiUyMHRleHR1cmV8ZW58MHx8fHwxNzgxNTM4MDkwfDA&ixlib=rb-4.1.0&q=85",
+        "usage": "Use as a very low opacity (5-10%) background texture for the entire app to kill the 'flat digital' look."
+      },
+      {
+        "category": "CRT Glitch Overlay",
+        "url": "https://images.unsplash.com/photo-1634368998864-8984df61cdda?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxjcnQlMjBzY2FubGluZXMlMjBnbGl0Y2h8ZW58MHx8fHwxNzgxNTM4MDkwfDA&ixlib=rb-4.1.0&q=85",
+        "usage": "Use blended via mix-blend-mode (e.g., overlay or screen) in the Floating System Overlay or during 'TAKE OVER' actions to simulate system strain."
+      }
+    ]
+  },
+  "iconography_direction": {
+    "library": "Phosphor Icons (duotone or regular) for web. Material Symbols (Sharp) for Compose.",
+    "style": "Technical, precise, and unrounded. Avoid soft or friendly icons. Use sharp geometries to match the glitch mystic aesthetic.",
+    "custom_glyphs": "Use Cinzel Decorative text characters (like '∆', 'Ω', '∑') as iconography where appropriate for the Swurlz Mentor/Occult vibe."
+  },
+  "instructions_to_main_agent": [
+    "Ensure the application strictly follows the 'Glitch Mystic' aesthetic: combine brute technical UI (monospace, sharp corners, harsh borders) with subtle occult/arcane textures.",
+    "Never use Inter, Roboto, or generic sans for headers. Use the specified IBM Plex for body, JetBrains Mono for data/logs, and Cinzel Decorative ONLY for prominent mentor/system headers.",
+    "In the Council Cockpit, visually distinct chat bubbles are critical: User (muted/minimal), Operator (technical/terminal), Mentor (ornate/sigil-based).",
+    "For the Jetpack Compose app, define a custom dark color palette using the hex codes provided. Ensure all risk tier and AI ambient states are implemented as semantic color tokens.",
+    "Ensure all interactive elements have data-testid attributes formatted as kebab-case and role-based (e.g., data-testid='approve-action-button').",
+    "Do not use generic card shadows; use the defined 'glow' effects to simulate faint phosphor monitors.",
+    "Implement the 'sovereignty buttons' with exact hover/press states described to ensure the user feels authoritative control over the AI."
+  ]
+}

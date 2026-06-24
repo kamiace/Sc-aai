@@ -1,0 +1,21 @@
+{
+  "core_version": "0.1.6-pzhp-lds-planning",
+  "patch_name": "Pzhp-LDS Local Core + Learning Delta Sync Planning Patch",
+  "updated_at": "2026-06-24T00:00:00Z",
+  "compatibility": {
+    "min_android_app_version": "0.1.5-context-control",
+    "schema_version": 1
+  },
+  "policy": {
+    "integrate_do_not_overwrite": true,
+    "requires_backup_before_activation": true,
+    "stage_before_live_activation": true,
+    "verify_hashes_before_apply": true,
+    "never_auto_replace_unverified_executable_modules": true
+  },
+  "files": [],
+  "rollback": {
+    "required": true,
+    "instructions": "Keep the previous working runtime until staging, merge, smoke tests, and activation all pass."
+  }
+}

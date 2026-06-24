@@ -1,0 +1,6 @@
+# Copy to local.properties and point sdk.dir to the Android SDK installed by Codespaces/Android Studio.
+sdk.dir=/path/to/Android/Sdk
+
+# Optional build-time defaults. The 0.1.5 app can change these later from Setup.
+SWURLZ_BACKEND_URL=
+SWURLZ_API_TOKEN=

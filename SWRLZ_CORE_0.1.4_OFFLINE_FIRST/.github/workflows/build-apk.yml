@@ -1,0 +1,73 @@
+name: Build SWRLZ-CORE APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths:
+      - 'android/**'
+      - '.github/workflows/build-apk.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-android:
+    name: Build installable debug APK
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    env:
+      SWURLZ_BACKEND_URL: ${{ secrets.SWURLZ_BACKEND_URL }}
+      SWURLZ_API_TOKEN: ${{ secrets.SWURLZ_API_TOKEN }}
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle cache and wrapper validation
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-home-cache-cleanup: true
+
+      - name: Configure Android SDK path
+        shell: bash
+        run: |
+          printf 'sdk.dir=%s\n' "$ANDROID_HOME" > android/local.properties
+          chmod +x android/gradlew
+
+      - name: Build debug APK
+        working-directory: android
+        run: ./gradlew --no-daemon --stacktrace clean assembleDebug
+
+      - name: Prepare mobile download bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cp android/app/build/outputs/apk/debug/app-debug.apk \
+            dist/SWRLZ_CORE_0.1.4_OFFLINE_FIRST-debug.apk
+          sha256sum dist/SWRLZ_CORE_0.1.4_OFFLINE_FIRST-debug.apk \
+            > dist/SWRLZ_CORE_0.1.4_OFFLINE_FIRST-debug.apk.sha256
+          zip -qr dist/SWRLZ_CORE_0.1.4_FULL_SOURCE.zip . \
+            -x '.git/*' \
+               'dist/*' \
+               'android/.gradle/*' \
+               'android/app/build/*' \
+               'frontend/node_modules/*' \
+               '**/__pycache__/*' \
+               '*.pyc'
+
+      - name: Upload APK and complete source
+        uses: actions/upload-artifact@v7
+        with:
+          name: SWRLZ_CORE_0.1.4_ANDROID_DOWNLOADS
+          path: dist/
+          if-no-files-found: error
+          retention-days: 30

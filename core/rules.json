@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "core_laws": [
+    "Integrate, do not overwrite.",
+    "Offline local behavior remains first-class.",
+    "User-taught local skills survive official core updates.",
+    "Medium, high, and locked actions require confirmation unless explicitly trusted.",
+    "Emergency pause/takeover must interrupt active automation."
+  ],
+  "risk_levels": {
+    "low": {
+      "description": "Reversible or informational actions.",
+      "requires_confirmation": false
+    },
+    "medium": {
+      "description": "Settings changes or multi-step workflows that can affect the user's environment.",
+      "requires_confirmation": true
+    },
+    "high": {
+      "description": "Delete, send, spend, share, account-altering, or external-impact actions.",
+      "requires_confirmation": true
+    },
+    "locked": {
+      "description": "Irreversible, financial, identity, or physical-world actions requiring explicit unlock and review.",
+      "requires_confirmation": true,
+      "requires_explicit_unlock": true
+    }
+  }
+}
